@@ -9,22 +9,25 @@
     "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test"
   },
   "jest": {
-      "transform": {
-        "^.+\\.tsx?$": "babel-jest"
-      },
-      "collectCoverage": true,
-      "coverageDirectory": "coverage",
-      "collectCoverageFrom": [
-        "src/**/*.ts"
-      ],
-      "reporters": [
-        "default",
-        ["jest-html-reporter", {
+    "transform": {
+      "^.+\\.tsx?$": "babel-jest"
+    },
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "reporters": [
+      "default",
+      [
+        "jest-html-reporter",
+        {
           "pageTitle": "Test Report",
           "outputPath": "test-report.html"
-        }]
+        }
       ]
-  },  
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -55,12 +58,14 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@types/winston": "^2.4.4",
     "axios-mock-adapter": "^1.22.0",
     "body-parser": "^1.20.2",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.18.3",
-    "http": "^0.0.1-security"
+    "http": "^0.0.1-security",
+    "winston": "^3.11.0"
   }
 }
