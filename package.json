@@ -8,11 +8,23 @@
     "test": "jest",
     "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test"
   },
-  "jest": { 
-    "transform": {
-            "^.+\\.tsx?$": "babel-jest"
-        }
-  },
+  "jest": {
+      "transform": {
+        "^.+\\.tsx?$": "babel-jest"
+      },
+      "collectCoverage": true,
+      "coverageDirectory": "coverage",
+      "collectCoverageFrom": [
+        "src/**/*.ts"
+      ],
+      "reporters": [
+        "default",
+        ["jest-html-reporter", {
+          "pageTitle": "Test Report",
+          "outputPath": "test-report.html"
+        }]
+      ]
+  },  
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -29,8 +41,10 @@
     "@types/jest": "^29.5.12",
     "@types/mocha": "^10.0.6",
     "@types/sinon": "^17.0.3",
+    "@types/supertest": "^6.0.2",
     "chai": "^5.1.0",
     "jest": "^29.7.0",
+    "jest-html-reporter": "^3.10.2",
     "mocha": "^10.3.0",
     "nodemon": "^3.1.0",
     "nyc": "^15.1.0",
