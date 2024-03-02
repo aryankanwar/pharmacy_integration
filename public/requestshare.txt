@@ -1,0 +1,34 @@
+//CREATE ORDERS FOR PHARMACY
+curl --location 'localhost:3000/healthmart/createOrder' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyNjUxMUBnbWFpbC5jb20iLCJpYXQiOjE2ODAxMzk1ODUsImV4cCI6MTc0MDEzOTU4NX0.Gehn81-U01zCs31lYHcYSAkhvX8Y9NmGvSPxJnfJ0f0' \
+--data '{
+    "healthMartProduct": "Painkiller",
+    "healthMartQuantity": 3,
+    "healthMartCustomerInfo": {
+        "healthMartCustName": "John Doe",
+        "healthMartCustAddress": "123 Main Street",
+        "healthMartCustCity": "Cityville",
+        "healthMartCustState": "State",
+        "healthMartCustZipcode": "12345",
+        "healthMartCustCountry": "Country"
+    }
+}'
+
+//GET ALL PHARMACIES 
+
+curl --location 'localhost:3000/getPharamcy' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyNjUxMUBnbWFpbC5jb20iLCJpYXQiOjE2ODAxMzk1ODUsImV4cCI6MTc0MDEzOTU4NX0.Gehn81-U01zCs31lYHcYSAkhvX8Y9NmGvSPxJnfJ0f0' \
+--data ''
+
+
+//GET ORDERS OF A PHARMACY 
+
+curl --location 'localhost:3000/careplus/orders' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyNjUxMUBnbWFpbC5jb20iLCJpYXQiOjE2ODAxMzk1ODUsImV4cCI6MTc0MDEzOTU4NX0.Gehn81-U01zCs31lYHcYSAkhvX8Y9NmGvSPxJnfJ0f0' \
+--data ''
+
+//GET ORDER BY ID
+curl --location 'localhost:3000/careplus/orders/1692005683088' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyNjUxMUBnbWFpbC5jb20iLCJpYXQiOjE2ODAxMzk1ODUsImV4cCI6MTc0MDEzOTU4NX0.Gehn81-U01zCs31lYHcYSAkhvX8Y9NmGvSPxJnfJ0f0' \
+--data ''

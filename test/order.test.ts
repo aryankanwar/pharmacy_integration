@@ -72,3 +72,49 @@ describe('Get list of All pharmacy API', () => {
 
     });
 });
+
+//INTEGRATION TEST 
+describe('Create and Get Order Details', () => {
+    let orderId;
+
+    it('should create an order and retrieve its details successfully', async () => {
+        // Create an order
+        const createOrderBody = {
+            "healthMartProduct": "Painkiller",
+            "healthMartQuantity": 3,
+            "healthMartCustomerInfo": {
+                "healthMartCustName": "John Doe",
+                "healthMartCustAddress": "123 Main Street",
+                "healthMartCustCity": "Cityville",
+                "healthMartCustState": "State",
+                "healthMartCustZipcode": "12345",
+                "healthMartCustCountry": "Country"
+            }
+        };
+
+        // Make request to create the order
+        const createOrderResponse = await request(app)
+            .post('/healthmart/createOrder')
+            .send(createOrderBody)
+            .set('Accept', 'application/json');
+
+        // Assert creation was successful
+        expect(createOrderResponse.status).toBe(201);
+        expect(createOrderResponse.body).toHaveProperty('data');
+        expect(createOrderResponse.body.data).toHaveProperty('healthMartId');
+        
+        // Store the order ID for further testing
+        orderId = createOrderResponse.body.data.healthMartId;
+
+        // Retrieve order details using the order ID
+        const getOrderResponse = await request(app)
+            .get(`/healthmart/orders/${orderId}`)
+            .set('Accept', 'application/json');
+        
+        // Asserting the response
+        expect(getOrderResponse.status).toBe(200);
+        expect(getOrderResponse.body).toHaveProperty('order');
+        expect(getOrderResponse.body.order).toHaveProperty('healthMartId');
+        expect(getOrderResponse.body.order.healthMartId).toBe(orderId);
+    });
+});

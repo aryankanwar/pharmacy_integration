@@ -7,8 +7,6 @@ Features:
 
 - Environment, Typescript, Nodemon setup
 - Controllers creation
-- Middlewares creation
-- Cookie based authentication
 - Postman testing
 - Create orders
 - Get Pharmacies
