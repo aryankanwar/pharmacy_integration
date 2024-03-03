@@ -29,8 +29,8 @@ export const createOrder = async (req: Request, res: Response) => {
         };
         res.status(201).json(responseData);
     } catch (error) {
-        logger.error('Error creating order:', error.message);
-        res.status(500).json({ error: 'Internal server error' });
+        logger.error('Error creating order:', error);
+        res.status(500).json({ error: `Error creating ${req.params.pharmacy} order` });
     }
 };
 
