@@ -20,7 +20,7 @@ Features:
 ### Cloning the repository
 
 ```shell
-git clone https://github.com/aryankanwar/ts-node-pharmacy-integration.git
+git clone https://github.com/aryankanwar/pharmacy_integration.git
 ```
 
 ### Install packages
@@ -43,4 +43,7 @@ Running commands with npm `npm run [command]`
 | :-------------- | :--------------------------------------- |
 | `start`         | Starts a development instance of the app |
 | `test`          | Runs a unit test and generate coverage report for app using jest |
+
+## Design decision and Requests
+Pdf uploaded in public folder along with curl commands for requests
 
